@@ -1,0 +1,262 @@
+body {
+    background: radial-gradient(circle at center, #1f2430 0%, #0c0e12 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+/* CRT */
+body::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+    background-size: 100% 4px;
+    z-index: 999;
+    pointer-events: none; /* Kliknięcia przechodzą przez filtr */
+    opacity: 0.2;
+}
+/* Cień */
+.walkman-container { /* Dopasuj do swojej głównej klasy obudowy */
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.6)) drop-shadow(0 5px 10px rgba(0, 0, 0, 0.4));
+    transition: transform 0.3s ease;
+}
+.walkman {
+    position: relative;
+    width: 300px;
+    height: 490px;
+    background-color: #51658a;
+    border: 3px solid #222;
+    border-radius: 6px;
+    box-sizing: border-box;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+.top-button {
+    position: absolute;
+    top: -18px;
+    left: 60px;
+    width: 45px;
+    height: 14px;
+    background-color: #f37021;
+    border: 2px solid #222;
+    border-radius: 4px 4px 0 0;
+}
+.right-silver-panel {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 55px;
+    height: 100%;
+    background-color: #d1d3d4;
+    border-left: 1px solid #222;
+    border-radius: 0 2px 2px 0;
+}
+.body-split-line {
+    position: absolute;
+    top: 75px;
+    left: 0;
+    width: 240px;
+    height: 3px;
+    background-color: #222;
+}
+.sony-brand {
+    position: absolute;
+    top: 8px;
+    left: 20px;
+    font-family: serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    letter-spacing: 1px;
+    transform: scaleX(1.3);
+    transform-origin: left center;
+}
+.sony-sub {
+    position: absolute;
+    top: 28px;
+    left: 20px;
+    font-family: Arial, sans-serif;
+    font-size: 7px;
+    color: #d1d3d4;
+    letter-spacing: 0.5px;
+}
+.stereo-label {
+    position: absolute;
+    top: 104px;
+    left: 30px;
+    font-family: Arial, sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    color: #51658a;
+    letter-spacing: 3px;
+    -webkit-text-stroke: 1.5px #ffffff;
+}
+.cassette-window {
+    position: relative;
+    top: 145px;
+    left: 45px;
+    width: 96px;
+    height: 260px;
+    background-color: #1a1a1a;
+    border: 3px solid #e0e0e0;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Zabezpieczenie przed wychodzeniem elementów poza okienko */
+}
+.cassette-window::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* gradient imitujący odbicie światła */
+    background: linear-gradient(
+        135deg, 
+        rgba(255, 255, 255, 0.15) 0%, 
+        rgba(255, 255, 255, 0.03) 50%, 
+        rgba(0, 0, 0, 0.1) 100%
+    );
+    pointer-events: none; 
+    z-index: 10;
+}
+.tape-center {
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 190px;
+    background-color: #d1d3d4;
+    border: 2px solid #444;
+    z-index: 1; 
+}
+/* GÓRNA SZPULKA */
+.spool-top {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 68px;
+    height: 68px;
+    background-color: #d1d3d4;
+    border: 15px solid #222;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+/* DOLNA SZPULKA */
+.spool-bottom {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 68px;
+    height: 68px;
+    background-color: #d1d3d4;
+    border: 25px solid #222;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+.teeth {
+    width: 28px;
+    height: 28px;
+    background-color: #1a1a1a;
+    border-radius: 50%;
+    border: 3px dashed #666;
+}
+/* STRZAŁKA */
+.sony-arrow {
+    position: absolute;
+    right: 88px;
+    top: 275px;
+    width: 8px;
+    height: 30px;
+    background-color: transparent;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    margin-right: 20px;
+}
+.sony-arrow::before {
+    content: '';
+    position: absolute;
+    top: -34px;
+    left: -6px;
+    width: 0;
+    height: 0;
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+    border-bottom: 36px solid #ffffff;
+}
+.sony-arrow::after {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: -4px;
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 31px solid #51658a;
+}
+/* kwadracik maskujący pasek w środku */
+.arrow-fix {
+    position: absolute;
+    top: -2px; 
+    left: 0;
+    width: 8px;
+    height: 8px;
+    background-color: #51658a; 
+    z-index: 5;
+}
+.led-dot {
+    position: absolute;
+    bottom: -6px;
+    left: 70px;
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 50%;
+    z-index: 1;
+}
+.open-1{
+    position: absolute;
+    bottom: 92px;
+    left: 60px;
+    width: 3px;
+    height: 24px;
+    background-color: #222;
+    z-index: 1;  
+}
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+.teeth {
+    animation: spin 4s linear infinite;
+}
+.tape-center::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%; width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+    transform: skewX(-20deg);
+    animation: shine 6s infinite;
+}
+
+@keyframes shine {
+    0% { left: -100%; }
+    20% { left: 160%; }
+    100% { left: 200%; }
+}
